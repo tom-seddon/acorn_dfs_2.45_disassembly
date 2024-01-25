@@ -10,7 +10,7 @@ The results:
 | --- | --- |
 | $8000-$aeff | DFS 2.45 |
 | $af00-$b7ff | MOS 3.50 |
-| $b800-$bfff | ADFS 2.04 disk code |
+| $b800-$bfff | ADFS 2.03 disk code |
 
 Significant debt due to Greg Cook's disassembly of DFS 2.24:
 http://regregex.bbcmicro.net/dfs224.asm.txt - the two ROMs are very
@@ -32,7 +32,7 @@ Prerequisites:
 
 This repo has submodules. Clone it with `--recursive`:
 
-    git clone --recursive https://github.com/tom-seddon/mos320
+    git clone --recursive https://github.com/tom-seddon/acorn_dfs_2.45_disassembly
 	
 Alternatively, if you already cloned it non-recursively, you can do
 the following from inside the working copy:
@@ -54,10 +54,11 @@ might print a load of stuff about entering and leaving the directory.
 
 ## build output
 
-The build output is two ROMs that you can compare to the original (if
-you don't trust the build process, which already does this and will
-alert you to any discrepcancy):
+The build output is two ROMs:
 
 - `build/dfs245.rom` - DFS 2.45 ROM, identical to MOS 3.50 ROM bank 9
 - `build/dfs245_truncated.rom` - just the DFS 2.45 code, $8000-$aeff,
   to ensure it assembles standalone
+
+The corresponding original ROMs can be found in the `orig` folder.
+
