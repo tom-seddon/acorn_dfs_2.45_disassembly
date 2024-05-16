@@ -54,11 +54,17 @@ might print a load of stuff about entering and leaving the directory.
 
 ## build output
 
-The build output is two ROMs:
+The build output is four ROMs:
 
 - `build/dfs245.rom` - DFS 2.45 ROM, identical to MOS 3.50 ROM bank 9
-- `build/dfs245_truncated.rom` - just the DFS 2.45 code, $8000-$aeff,
+- `build/dfs245.truncated.rom` - just the DFS 2.45 code, $8000-$aeff,
   to ensure it assembles standalone
+- `build/dfs245.rev1191.rom` DFS 2.45 ROM with later copyright date,
+  as discussed in this thread:
+  https://stardot.org.uk/forums/viewtopic.php?t=19103 (search for
+  `rev1191` in the source to see the differences)
+- `build/dfs245.rev1191.truncated.rom` - just the DFS 2.45 rev 1191
+  code, $8000-$aeff, to ensure it assembles standalone
 
 The corresponding original ROMs can be found in the `orig` folder.
 

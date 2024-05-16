@@ -1,3 +1,13 @@
+
+                .weak
+
+                ; if true, build rev1191 as posted here:
+                ; https://stardot.org.uk/forums/viewtopic.php?t=19103
+rev1191=false
+                .endweak
+                
+;-------------------------------------------------------------------------
+
 L00A0=$a0
 L00A1=$a1
 L00A2=$a2
@@ -187,6 +197,9 @@ LC2E2=$c2e2
 LC2E3=$c2e3
 LC2E4=$c2e4
 LC2E5=$c2e5
+                .if rev1191
+LC2E6=$c2e6
+                .endif
 LC300=$c300
 LC309=$c309
 LC30B=$c30b
@@ -247,7 +260,13 @@ OSCLI=$fff7
                 .byte 0
                 .text "2.45"
                 .byte 0
-                .text "(C)1985 Acorn"
+                .text "(C)198"
+                .if rev1191
+                .text "9"
+                .else
+                .text "5"
+                .endif
+                .text " Acorn"
                 .byte 0
 
 ;-------------------------------------------------------------------------
@@ -3640,10 +3659,17 @@ L91E5:       .byte $A0
 ;-------------------------------------------------------------------------
 
 L91F4:
+                .if rev1191
+                stx $c7
+                sty $c8
+                lda #$ff
+                sta LC282
+                .else
                 lda #$FF
                 sta LC282
                 stx L00C7
                 sty L00C8
+                .endif
                 ldy #$C
 
 L91FF:
@@ -6513,6 +6539,18 @@ LA210:
                 pla
                 plx
                 bpl LA20B
+                .if rev1191
+                ldy L00EF
+                nop
+                nop
+                ldx L00F0
+                stx L00C7
+                ldx L00F1
+                stx L00C8
+                iny
+                bpl LA23E
+                jmp $91f8       ; ??????
+                .else
                 ldx L00F0
                 stx L00C7
                 ldx L00F1
@@ -6522,6 +6560,7 @@ LA210:
                 ldx L00C7
                 ldy L00C8
                 jmp L91F4
+                .endif
 
 ;-------------------------------------------------------------------------
 
@@ -9421,13 +9460,21 @@ LBB60:
                 ldx #$C
                 ldy #$FF
                 jsr OSBYTE
+                .if rev1191
+                sty LC2E6
+                .else
                 sty LC2DE
+                .endif
                 rts
 
 ;-------------------------------------------------------------------------
 
 LBB6D:
+                .if rev1191
+                ldy LC2E6
+                .else
                 ldy LC2DE
+                .endif
                 lda #$8F
                 ldx #$B
                 jmp OSBYTE
