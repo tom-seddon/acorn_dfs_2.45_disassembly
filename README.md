@@ -22,9 +22,16 @@ readable source file.)
 
 # build
 
-Prerequisites:
+Builds on Windows, macOS and Linux.
+
+Prerequisites (Windows/macOS/Linux):
 
 - Python 3.x
+
+For Windows, prebuilt binaries of the additional prerequisites are
+supplied in the repo; for macOS and Linux, you'll need to install them
+yourself:
+
 - [`64tass`](http://tass64.sourceforge.net/) (I use r3120)
 - GNU Make
 
@@ -46,7 +53,7 @@ clone it as above.)
 
 ## build steps
 
-Run GNU Make from the root of the working copy.
+Run `make` from the root of the working copy.
 
 The build process is supposed to be silent when there are no errors
 and when the output matches the original ROMs. Some versions of make
@@ -67,4 +74,3 @@ The build output is four ROMs:
   code, $8000-$aeff, to ensure it assembles standalone
 
 The corresponding original ROMs can be found in the `orig` folder.
-

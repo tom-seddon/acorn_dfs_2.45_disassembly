@@ -1,10 +1,8 @@
 ifeq ($(OS),Windows_NT)
 PYTHON:=py -3
-BEEBASM:=beebasm
-TASS:=64tass
+TASS:=bin\64tass
 else
 PYTHON:=/usr/bin/python3
-BEEBASM:=beebasm
 TASS:=64tass
 endif
 
