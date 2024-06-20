@@ -1,3 +1,17 @@
+**This repo is redundant**
+
+For general DFS stuff, please see Greg Cook's disassembly of DFS 2.24,
+which has comments and labels and bug fixes and everything:
+http://regregex.bbcmicro.net/dfs224.asm.txt
+
+For DFS 2.45 specifically, my modification of Greg's disassembly may
+be of interest:
+https://github.com/tom-seddon/acorn_1770_dfs_disassembly - builds
+2.24, 2.25, 2.26, 2.29 and 2.45 from one source file. There's no
+useful commentary that isn't already in Greg's version though!
+
+----
+
 Extremely barebones disassembly of Acorn DFS 2.45.
 
 Main goal of this mini project: get some confidence about how the ROM
